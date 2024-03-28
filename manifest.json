@@ -1,0 +1,17 @@
+{
+    "name": "Il Ciarnuro Simulatore di Investimenti",
+    "short_name": "Il Ciarnuro Investimenti",
+    "id": "gcf",
+    "description": "Compra e vendi azioni sul GCF",
+    "icons": [
+        {
+            "src": "pics/pwaicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        }
+    ],
+    "start_url": "index.html",
+    "scope": "/gcf/",
+    "display": "standalone"
+}

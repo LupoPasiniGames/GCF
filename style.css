@@ -1,0 +1,416 @@
+:root{
+    --background-a:#08122A;
+    --background-b:#475776;
+    --background-c:#2e384c;
+    --foreground-a:#F8FCFF;
+    --foreground-b:#FFFFFF;
+    --accent-a:#d5e7ff;
+    --accent-b:#a7b5c8;
+}
+*{
+    box-sizing:border-box;
+    user-select:none;
+}
+@font-face{
+    font-family:"Xolonium";
+    src:url("fonts/Xolonium-Regular.woff2");
+}
+@font-face{
+    font-family:"Xolonium";
+    src:url("fonts/Xolonium-Bold.woff2");
+    font-weight:bold;
+}
+@font-face{
+    font-family:"Nunito";
+    src:url("fonts/Nunito.ttf");
+}
+body{
+    font-family:"Nunito",sans-serif;
+    background:var(--background-a);
+    color:var(--foreground-a);
+}
+h1,h2,h3,h4,h5,h6{
+    font-family:"Xolonium",sans-serif;
+    color:var(--foreground-b);
+    text-shadow:0 0 0.7em var(--accent-b),0 0 0.2em var(--accent-a);
+}
+.loading{
+    animation:loadingAnimation 1s linear infinite;
+    border-radius:1rem;
+}
+@keyframes loadingAnimation{
+    0%{
+        background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0.4),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0),rgba(255,255,255,0));
+        background-size:200rem 1rem;
+        background-position:0 0;
+    }
+    100%{
+        background-position:-200rem 0;
+    }
+}
+#stockChartContainer{
+    width:100%;
+    max-width:45rem;
+    height:25rem;
+}
+#rsiChartContainer{
+    width:100%;
+    max-width:45rem;
+    height:8rem;
+}
+#topBar{
+    position:absolute;
+    top:0rem; left:0; right:0; height:4.5rem;
+    box-shadow:0 0 0.6rem rgba(0,0,0,0.4);
+    text-align:center;
+    background:var(--background-c);
+    z-index:9999;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+}
+#logo{
+    position:absolute;
+    top:0; left:0; width:auto; height:4.5rem;
+}
+#leftBar{
+    position:absolute;
+    top:4.5rem; left:0; width:22rem; bottom:0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background:var(--background-b);
+    box-shadow:0 0 0.6rem rgba(0,0,0,0.4);
+    padding:0.5rem 0;
+}
+#stockDetails{
+    position:absolute;
+    top:4.5rem; left:22rem; right:0; bottom:0;
+    padding:1rem;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+#stockDetailsInternal div.stockPrice, #stockDetailsInternal div.dailyVariation{
+    font-family:"Nunito",sans-serif;
+    display:inline-block;
+    font-weight:700;
+    padding:0.35rem;
+}
+#stockDetailsInternal div.stockPrice{
+    font-size:1.65rem;
+}
+#stockDetailsInternal div.dailyVariation{
+    font-size:1.1rem;
+}
+#leftBar h2{
+    text-shadow:none;
+    padding:0 0.5rem;
+}
+div.list > div{
+    position: relative;
+    min-height: 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding: 0.5rem;
+}
+div.list > div >*:last-child::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+div.list > div > div.dailyVariation{
+    display:inline-block;
+    margin-left:0.5em;
+}
+div.list > div > div.stockPrice{
+    display:inline-block;
+}
+div.list > div > div.gainLoss{
+    display:inline-block;
+    float:right;
+}
+div.list > div.selected{
+    background:rgba(0,0,0,0.3);
+}
+div.list span.badge{
+    display: inline-block;
+    background: var(--accent-a);
+    color: var(--background-b);
+    font-size: 0.7em;
+    padding: 0.05em 0.3em;
+    margin: 0 0.5em;
+    border-radius: 0.2em;
+}
+.negative{
+    color:#FF0000;
+    text-shadow:0.05em 0.05em 0.1em rgba(0,0,0,0.1);
+}
+.positive{
+    color:#40C040;
+    text-shadow:0.05em 0.05em 0.1em rgba(0,0,0,0.2);
+}
+.super{
+    font-weight:bold;
+    text-shadow:0 0 0.1em var(--accent-a);
+}
+div.clickOverlay{
+    position:absolute;
+    top:0; left:0; right:0; bottom:0;
+    cursor:pointer;
+    z-index:99999;
+}
+div.tile{
+    display:inline-flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    vertical-align:middle;
+    min-height:4.5rem;
+    margin:0 1rem;
+    text-align:center;
+}
+div.tile > *:first-child{
+    font-weight:bold;
+}
+div.slide{
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    overflow-y:scroll;
+    opacity:0;
+    transition:opacity 0.4s;
+}
+div.slide.hidden{
+    opacity:0;
+    z-index:1;
+}
+div.slide.visible{
+    opacity:1;
+    z-index:2;
+}
+div.tile > div.rating{
+    font-family:"Xolonium";
+    font-weight:bold;
+    font-size:1.2rem;
+}
+#newPlayer{
+    padding:1rem;
+}
+#connectionError,#noMultipleTabs{
+    text-align:center;
+}
+#dialogBox{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    overflow:auto;
+    opacity:0;
+    transition:opacity 0.2s;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(1rem);
+}
+#dialogBox.visible{
+    opacity:1;
+    z-index:99;
+}
+#dialogBox.hidden{
+    opacity:0;
+    z-index:-99;
+}
+#dialogBoxContainer{
+    position:relative;
+    min-width:10rem;
+    min-height:5rem;
+    background:var(--background-c);
+    box-shadow:0 0 3rem rgba(0,0,0,0.4);
+    border-radius:1rem;
+    padding:1rem;
+}
+#dialogContent{
+    margin-bottom:4rem;
+}
+#dialogButtons{
+    text-align:center;
+}
+#openClose{
+    display:none;
+}
+#playerRank{
+    font-size:0.7em;
+    line-height:1;
+}
+button{
+    background:transparent;
+    color:var(--foreground-a);
+    border:0.1em solid var(--foreground-a);
+    padding:0.4em 1em;
+    border-radius:0.2em;
+    margin:0.5rem;
+}
+button:hover, button:focus{
+    text-shadow:0 0 0.2em white;
+    box-shadow:0 0 0.7em var(--accent-b),0 0 0.2em var(--accent-a);
+}
+button:active{
+    background:rgba(0,0,0,0.2);
+    text-shadow:0 0 0.1em white;
+    box-shadow:0 0 0.5em var(--accent-b),0 0 0.1em var(--accent-a);
+}
+button.selected{
+    color:var(--foreground-b);
+    border-color:var(--foreground-b);
+    box-shadow:0 0 0.7em var(--accent-b),0 0 0.2em var(--accent-a);
+}
+input,select{
+    background:rgba(0,0,0,0.5);
+    color:var(--foreground-a);
+    border:none;
+    border-bottom:0.15em solid var(--accent-a);
+}
+input:focus,select:focus{
+    border-bottom:0.15em solid var(--foreground-a);
+}
+img.character{
+    position:fixed;
+    bottom:0; right:0; width:100%; height:100%;
+    object-fit:cover;
+    object-position:50% 15%;
+    z-index:-99999;
+}
+#stockDetails{
+    overflow:auto;
+}
+#stockDetails img.character{
+    width:calc(100% - 22rem);
+}
+#chartControls,#controls{
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    padding:0.5rem 0;
+}
+#etfComponents,#etfComponents tr, #etfComponents td, #etfComponents th{
+    border:1px solid rgba(255,255,255,0.4)
+}
+#etfComponents td, #etfComponents th{
+    padding:0.3rem;
+}
+div.characterContainer{
+    opacity:0.15;
+    user-select:none;
+    pointer-events: none;
+    position:relative;
+    z-index:-99;
+}
+img.background{
+    position:absolute;
+    top:0; left:0; width:100%; height:100%;
+    object-fit:cover;
+    object-position:50% 50%;
+    z-index:-1;
+}
+#introLogo{
+    width:90%;
+    max-width:45rem;
+    height:auto;
+    display:block;
+    margin:0 auto;
+    margin-bottom:2rem;
+    filter:drop-shadow(0 0 1rem black);
+}
+#intro{
+    display:flex;
+    align-items:center;
+    justify-items:center;
+}
+#introContent{
+    width:100%;
+    text-align:center;
+}
+#introContent button{
+    font-size:1.2em;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(1rem);
+}
+#stonks{
+    opacity:0.3;
+    object-position:100% 100%;
+    animation:stonks 30s linear;
+}
+@keyframes stonks{
+    0%{
+        object-position:0% 0%;
+    }
+    100%{
+        object-position:100% 100%;
+    }
+}
+div.colonna{
+    max-width:65rem;
+    margin:0 auto;
+    padding:2rem;
+}
+div.slide.tutorial img{
+    width:90%;
+    max-width:45rem;
+    display:block;
+    margin:1rem auto;
+    border:0.5rem solid rgba(255,255,255,0.4);
+}
+.hideScrollbars{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.hideScrollbars::-webkit-scrollbar{
+    display:none;
+}
+img{
+    user-select:none;
+    pointer-events: none;
+}
+@media all and (max-width:50rem){
+    #openClose{
+        display:block !important;
+        position:absolute;
+        font-size:3rem;
+        right:0.5rem;
+        text-align:right;
+        font-weight:900;
+        cursor:pointer;
+        user-select:none;
+    }
+    #logo{
+        display:none;
+    }
+    #leftBar{
+        transition:left 0.4s;
+    }
+    #leftBar.minimized{
+        left:-19rem;
+    }
+    #leftBar.minimized *{
+        display:none;
+    }
+    #leftBar.expanded{
+        width:100%;
+    }
+    #stockDetails{
+        left:3rem;
+    }
+    /*#currentDate{
+        display:none;
+    }*/
+    #stockDetails img.character{
+        width:100%;
+    }
+}
+@media print{
+    *{
+        display:none !important;
+    }
+}
+#watermark{
+    position:fixed;
+    bottom:1rem; right:1rem;
+    color:rgba(255,255,255,0.4);
+    user-select:none;
+    z-index:9999999;
+}

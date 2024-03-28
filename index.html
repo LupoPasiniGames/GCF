@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Il Ciarnuro Simulatore di Investimenti</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="manifest" href="manifest.json">
+        <link rel="icon" type="image/png" href="pics/favicon.png">
+        <meta name="viewport" content="width=device-width">
+        <meta name="theme-color" content="#2e384c">
+        <meta name="description" content="Investi i tuoi Krok nella piazza virtuale del GCF">
+        <script src="gcf.js" type="text/javascript"></script>
+        <script src="lib/chart.js" type="text/javascript"></script>
+        <script src="lib/chartjs-adapter-date-fns.bundle.min.js" type="text/javascript"></script>
+        <script src="app.js" type="text/javascript"></script>
+    </head>
+    <body onload="initApp()">
+        <div id="loadingOverlay" style="position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999999; background:black;"></div>
+        <div id="trading" class="slide hideScrollbars">
+            <div id="topBar">
+                <img id="logo" src="pics/lpg.png">
+                <div class="tile">
+                    <div id="playerName"></div>
+                    <div id="playerRank"></div>
+                    <div id="currentDate"></div>
+                </div>
+                <div class="tile">
+                    <div>Equity</div>
+                    <div id="playerEquity"></div>
+                </div>
+                <div class="tile">
+                    <div>Disponibilità</div>
+                    <div id="playerCredits"></div>
+                </div>
+            </div>
+            <div id="stockDetails">
+                <div class="characterContainer">
+                    <img class="character" id="krarlik_eye" srcset="pics/lowspec/krarlik_eye.webp 900w, pics/midspec/krarlik_eye.webp 1800w">
+                    <img class="character" srcset="pics/lowspec/krarlik_front.webp 900w, pics/midspec/krarlik_front.webp 1800w">
+                </div>
+                <div id="stockDetailsInternal">
+                    Seleziona un titolo per vedere quì i dettagli
+                </div>
+                <div id="chartControls" style="display:none">
+                    <button onclick="chartDays=1;showDetails(stockDetails.current)">Giornaliero</button>
+                    <button onclick="chartDays=7;showDetails(stockDetails.current)">Settimanale</button>
+                    <button onclick="chartDays=30;showDetails(stockDetails.current)">Mensile</button>
+                    <button onclick="chartDays=365;showDetails(stockDetails.current)">Annuale</button>
+                    <button onclick="chartDays=1825;showDetails(stockDetails.current)">Quinquennale</button>
+                </div>
+                <div id="purchasedInfo" style="display:none">
+                    <div class="tile">
+                        <div>Quantità</div>
+                        <div id="purchasedAmount">...</div>
+                    </div>
+                    <div class="tile">
+                        <div>Prezzo medio</div>
+                        <div id="avgPrice">...</div>
+                    </div>
+                    <div class="tile">
+                        <div>Valore</div>
+                        <div id="purchasedValue">...</div>
+                    </div>
+                    <div class="tile">
+                        <div>Profitto</div>
+                        <div id="profit">...</div>
+                    </div>
+                    <div class="tile">
+                        <div>Gain/Loss</div>
+                        <div id="gainLoss">...</div>
+                    </div>
+                </div>
+                <div id="controls" style="display:none">
+                    <input type="number" min="1" step="1" id="amount">
+                    <button id="buy" onclick="buy()">Compra</button><button id="sell" onclick="sell()">Vendi</button>
+                    <button id="allIn" onclick="allIn()">All in</button><button id="allOut" onclick="allOut()">Vendi tutto</button>
+                </div>
+                <div id="companyDescription" style="display:none">
+                    <h2>Profilo societario</h2>
+                    <div id="companyDescriptionContent"></div>
+                </div>
+                <div id="etfDetails" style="display:none">
+                    <h2>Dettagli ETF</h2>
+                    <div id="etfDescription"></div>
+                    <h4>Composizione</h4>
+                    <table id="etfComponents"></table>
+                </div>
+                <div id="transactionFees" style="display:none">
+                    <h2>Commissioni</h2>
+                    <div class="tile">
+                        <div>Per operazione</div>
+                        <div id="commission"></div>
+                    </div>
+                    <div class="tile">
+                        <div>Tassa sui guadagni</div>
+                        <div id="tax"></div>
+                    </div>
+                </div>
+                <div id="ratings" style="display:none">
+                    <h2>Rating delle agenzie</h2>
+                    <div class="tile">
+                        <div>Krolik<br>(Lungo termine)</div>
+                        <div id="longTermInvestmentRating" class="rating"></div>
+                    </div>
+                    <div class="tile">
+                        <div>Fitzgerald &amp; Qüür<br>(Speculativo)</div>
+                        <div id="speculativeInvestmentRating" class="rating"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="leftBar">
+                <div id="openClose"></div>
+                <h2 id="myStocksTitle">Il tuo portfolio</h2>
+                <div id="myStocks" class="list">Caricamento...</div>
+                <h2>Tutti i titoli</h2>
+                <div id="allStocks" class="list">Caricamento...</div>
+            </div>
+        </div>
+        <div id="newPlayer" class="slide">
+            <div class="characterContainer">
+                <img class="character" srcset="pics/lowspec/krarlik2.webp 900w, pics/midspec/krarlik2.webp 1800w">
+            </div>
+            <h1>Profilo investitore</h1>
+            <p>
+                Il Ciarnuro Simulatore di Investimenti ti da il benvenuto!
+            </p>
+            <table>
+                <tr><td><label for="newPlayerName">Nome e cognome</label></td><td><input id="newPlayerName" type="text" value="Lord Qücklik"></td></tr>
+                <tr><td><label for="newPlayerRace">Specie</label></td><td>
+                <select id="newPlayerRace">
+                    <option value="Umano">Umano</option>
+                    <option value="Qüark" selected>Qüark</option>
+                    <option value="Krentoriano">Krentoriano</option>
+                    <option value="Syviar">Syviar</option>
+                </select></td></tr>
+            </table>
+            <p>Capitale iniziale: 25.000 Kr</p>
+            <button onclick="createPlayer()">Inizia</button>
+        </div>
+        <div id="connectionError" class="slide">
+            <h1>Fallimento critico</h1>
+            <p>Si è verificato un errore durante il caricamento. Controlla la connessione e riprova.</p>
+        </div>
+        <div id="noMultipleTabs" class="slide">
+            <h1>Fallimento critico</h1>
+            <p>Il tuo attuale profilo d'investimento non ti consente di aprire più schede contemporaneamente.</p>
+        </div>
+        <div id="intro" class="slide">
+            <img class="background" srcset="pics/lowspec/intro.webp 500w, pics/midspec/intro.webp 1200w, pics/ultraspec/intro.webp 2000w">
+            <img class="background" src="pics/stonks.webp" id="stonks">
+            <div id="introContent">
+                <img id="introLogo" srcset="pics/lowspec/logo.webp 500w, pics/midspec/logo.webp 1200w, pics/ultraspec/logo.webp 2000w">
+                <button onclick="toSlide('newPlayer')">Nuova partita</button>
+            </div>
+        </div>
+        <div id="dialogBox">
+            <div id="dialogBoxContainer">
+                <div id="dialogContent"></div>
+                <div id="dialogButtons"></div>
+            </div>
+        </div>
+        <div id="watermark">
+            Pre-release
+        </div>
+        <audio id="soundPlayer"></audio>
+    </body>
+</html>

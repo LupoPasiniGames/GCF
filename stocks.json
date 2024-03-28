@@ -1,0 +1,309 @@
+{
+    "CSA":{
+        "name":"Cosmic Arsenal",
+        "type":"stock",
+        "params":[100,0.4,0.02,1,0.5,1000],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata su Gaia nel 2058 per volere di un fiorente gruppo imprenditoriale metallurgico, acquisì in breve tempo il supporto del Governo Terrestre, che ne fece la prima azienda bellica Umana, pienamente attiva nel mercato speciale. Conosciuta in tutta la Galassia per l’efficacia e l’ottima fattura delle proprie armi, rappresenta, dopo la Chiesa Universale, la seconda azienda più temuta dalle altre GCC presenti sul mercato."
+    },
+    "MTR":{
+        "name":"Mantkor",
+        "type":"stock",
+        "params":[40,0.1,0.08,1,0.2,1001],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Nata agli inizi del 2062 dalla collaborazione di alcuni magnati illuminati Umani, Qüark e Guide Spirituali, si pose l’obiettivo di porre fine alle guerre, creando equipaggiamenti bellici di altissima qualità e cercando nuovi spazi colonizzabili nella Galassia."
+    },
+    "OLS":{
+        "name":"Olonovis",
+        "type":"stock",
+        "params":[70,0.4,0.02,1,0.8,1002],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"La missione di questa piccola realtà si identifica nella messa a punto del sistema di protezione perfetto per ogni esigenza. Attualmente offre tecnotute di altissimo livello capaci di affrontare anche le insidie dello spazio e scudi tattici intelligenti per i congegni in grado di autoricalibrarsi in relazione ai danni subiti. I prodotti Olonovis sono molto richiesti sia in campo bellico, sotto forma di tute, sia nel settore industriale, sotto forma di DPI, al fine di prevenire gli infortuni sul lavoro."
+    },
+    "KRT":{
+        "name":"Krattok",
+        "type":"stock",
+        "params":[1,1,0.1,1,0.1,1003],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"L’obiettivo primario di questa piccola ma competitiva azienda bellica Krentoriana, risiede nel creare armi la cui caratteristica sta nella massima potenza di fuoco nel minor spazio possibile. Principalmente attiva nel mercato speciale, fornisce prodotti efficaci e versatili agli eserciti di tutta la Galassia."
+    },
+    "ACQ":{
+        "name":"Alleanza Commerciale Qüark",
+        "type":"stock",
+        "params":[1000,0.1,0.004,1,1,4004],
+        "commission":0.05,
+        "tax":0.025,
+        "description":"Nata nel 2040 in seguito alle persecuzioni messe in atto dagli Ivosiani, rappresenta un’istituzione galattica sotto la diretta guida del Qüomq; principalmente attiva nel mercato dello scambio, dello spazio e dei beni di consumo, gode di un’elevatissima reputazione grazie ai suoi prodotti e servizi di qualità che hanno reso grande e orgogliosa la specie Qüark."
+    },
+    "OLZ":{
+        "name":"Olyze",
+        "type":"stock",
+        "params":[0.5,0.8,0.1,1,1.5,1005],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 2042 dalla Guida Spirituale Pash-Olyze per contrastare il fenomeno dei “cibi puri”, cerca di sensibilizzare le masse al culto del buon cibo, attraverso efficaci campagne pubblicitarie volte a screditare la crescente tendenza alimentare sintetica e offrendo prodotti BIO a basso costo."
+    },
+    "CU":{
+        "name":"Chiesa Universale",
+        "type":"stock",
+        "params":[100,0.1,0.025,1,0.4,1006],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Principalmente attiva nel mercato speciale dell’energia e dello scambio, si presenta come la più grande potenza economica dell’Umanità. Spesso in contrasto con la comunità scientifica di Khàr-Kàu, propone prodotti bellici di altissima qualità e svariate forme di energie rinnovabili a prezzi competitivi. Grazie alla sua forte presenza su Khàr-Khàr come guardiana delle istituzioni Qüark per mezzo dei suoi agenti speciali (gli “Arcangeli”) e gli ottimi rapporti con alcuni membri di spicco del Qüomq, gode di privilegi commerciali unici che contribuiscono a sottrarre quote di mercato alle GCC rivali."
+    },
+    "UMIT":{
+        "name":"Unione Mineraria Itinerante",
+        "type":"stock",
+        "params":[10,0.1,0.01,1,0.5,1007],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Nata nel 2041 attraverso un accordo economico fra i Qüark ed i Torpex, rappresenta senza ombra di dubbio l’azienda più grande nel settore delle materie grezze. Grazie al supporto dell’Alleanza Commerciale, combina le migliori competenze amministrative degli anfiri con le straordinarie doti estrattive e metallurgiche dei Torpex, formando un colosso imbattibile in questo settore."
+    },
+    "NAL":{
+        "name":"Nalah",
+        "type":"stock",
+        "params":[20,0.5,0.04,1,0.3,1008],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 2063 dall’adepto Tehl-Nalahzor per contrastare il potere economico della Chiesa Universale in tutti i suoi campi, propone equipaggiamenti bellici provenienti dalla rinomata ingegneria Syrotecnica ed energia elettrica pulita attraverso il rivoluzionario motore magnetico, il quale può essere installato facilmente nel luogo in cui è richiesta la fornitura energetica."
+    },
+    "UKG":{
+        "name":"Universal Kryborg",
+        "type":"stock",
+        "params":[1,0.8,0.08,1,0.5,1009],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Supportata dall’Alto Comando di Ivos, nasce nel 2062 dall’unione di due piccole aziende operanti nel settore della metallurgia, dell’energia e dei beni di consumo. Inizialmente mal vista per via dei suoi rapporti con il culto Syrotecnico, riuscì, grazie alle abilità diplomatiche dei propri rappresentanti, a conquistare discrete quote di mercato, oltre ad ottenere l’accesso ai condotti iperparsec per il transito delle proprie merci."
+    },
+    "SXFOD":{
+        "name":"Syntetix Food",
+        "type":"stock",
+        "params":[10,0.2,0.02,1,0.3,1010],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 2041 dall’Alleanza Commerciale con l’intento di acquisire il monopolio del mercato alimentare sintetico, fu vittima di pesanti critiche da parte dell’opinione pubblica. Tuttavia, grazie al brevetto della “frutta sintetica”, che consisteva nella clonazione massiccia di frutta naturale, poi venduta ad un prezzo dieci volte inferiore alla concorrenza, conquistò in parte la fiducia dei consumatori e gettò le basi per realizzare il progetto della “verdura sintetica”, la nuova frontiera dei cibi a basso costo."
+    },
+    "GTD":{
+        "name":"Genetyx Food",
+        "type":"stock",
+        "params":[4,0.4,0.04,1,0.3,1010],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 2042 dalla Syntetix Food e supportata dall’Alleanza Commerciale, si propone come un’azienda alternativa allo stesso colosso fondatore, con l’obiettivo di conquistare la fiducia di consumatori scettici nei confronti del mercato sintetico. Sotto la guida segreta dell’amministrazione Syntetix Food, essa propone prodotti naturali geneticamente modificati, posizionandosi fra la proposta BIO e quella sintetica."
+    },
+    "QEQ":{
+        "name":"Qüan en Qüant",
+        "type":"stock",
+        "params":[800,0.15,0.01,1,1,1012],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Fondata nel 2044 da Khàr-Qüan e Khàr-Qüant, due ricchissimi imprenditori Qüark un tempo al servizio dell’Alleanza Commerciale, tratta principalmente il commercio di beni di consumo e beni di lusso. In contrasto con la Syntetix Food e la Genetyx Food per la presunta violazione di brevetti, si presenta come la più grande corporazione di “cibi puri” esistente sul mercato."
+    },
+    "BRV":{
+        "name":"Bio Krovix",
+        "type":"stock",
+        "params":[0.4,0.85,0.12,1,1.5,1013],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Supportata dal governo di Pàdax Primus, entrò a far parte del mercato galattico nel 2075 commercializzando prodotti alimentari di alta qualità totalmente biologici, creati e confezionati dalla superba industria agricola Krentoriana. In diretta competizione con la Olyze, propone il meglio che la natura possa offrire a prezzi onesti."
+    },
+    "LCA":{
+        "name":"Lux Canori Arsenal",
+        "type":"stock",
+        "params":[120,0.3,0.05,1,0.7,1014],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Specializzata in armi ed equipaggiamenti facenti uso della tecnologia dei fasci di luce coerente, propone una vasta gamma di prodotti destinati al comparto bellico e all’industria mineraria. Il laser Canori, dopo lo xerolaser Torpex, è lo strumento più venduto in questo settore e, come dichiarato dal presidente della Lux Canori Arsenal, “è il compagno perfetto del minatore moderno”."
+    },
+    "CLC":{
+        "name":"Collins Cosmetics",
+        "type":"stock",
+        "params":[2,0.5,0.5,10,-0.5,1004],
+        "commission":0.05,
+        "tax":0.26,
+        "description":"Risollevata nel 2126 da Miss F.D.U 2127 Stacy Collins, la Collins Cosmetics produce prodotti cosmetici unici e promuove il brand della fondatrice con partnership con i marchi dell'alta moda."
+    },
+    "NZX":{
+        "name":"Nashaty Zootechnics",
+        "type":"stock",
+        "params":[0.5,0.4,0.07,2,3.5,2103],
+        "commission":0.05,
+        "tax":0.26,
+        "description":"Azienda specializzata nell'allevamento di animali feroci da compagnia per il mercato del lusso, con particolare attenzione ai serpenti. Guidata da Miss F.D.U 2100 Nida Nashaty dal 2101 e supportata dal Centro Bellico Gavomex."
+    },
+    "SQM":{
+        "name":"Saiqüem",
+        "type":"stock",
+        "params":[1.5,1,0.017,1,0,2078],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 2078 in una collaborazione tra Umani, Qüark e Torpex per l'estrazione di minerali e petrolio su asteroidi, lune e pianeti inesplorati per conto dell'Alleanza Commerciale Qüark."
+    },
+    "QUR":{
+        "name":"Qüring",
+        "type":"stock",
+        "params":[0.05,1,0.4,10,2.5,404],
+        "commission":0.05,
+        "tax":0.26,
+        "description":"La più grande azienda di moda dell'Alleanza Commerciale Qüark, conglomera tutti i brand dell'alta moda soprattutto Umana e Qüark."
+    },
+    "SILQ":{
+        "name":"Silq Inc.",
+        "type":"stock",
+        "params":[1,0.2,0.01,1,-0.1,10],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Fondata nel 1972, Silq è una delle aziende più antiche e virtuose nella produzione di cellulosa, cotone, prodotti per l'igiene e la cura della persona, cosmetici dell'industria Umana. Dopo l'ingresso dell'Umanità nella Federazione, si è unita ad un'azienda Qüark, che l'ha proiettata nel panorama galattico."
+    },
+    "DIE":{
+        "name":"Diesis Farmaceutica",
+        "type":"stock",
+        "params":[70,0.6,0.2,1.5,1.2,249555618266447775332],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Finanziata di Grandi Signori di Gaia, la Diesis Farmaceutica si pone l'obiettivo di prevenire e curare le malattie provenienti da altre specie dello spazio conosciuto, ai fini di proteggere e preservare la superiorità Umana."
+    },
+    "QUOMQ":{
+        "name":"BTP Qüomq",
+        "type":"stock",
+        "params":[1.25,12,0.01,100,0.05,883],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Buoni del Tesoro del Qüomq, emessi dalla banca centrale di Khàr-Khàr. A differenza delle comuni obbligazioni emesse dagli altri principali governi galattici, questi buoni funzionano esattamente come un'azione e sono da sempre oggetto sia di investimenti a lungo termine che di speculazione a breve termine."
+    },
+    "KRL":{
+        "name":"Kràrlick Loans & Insurance Services",
+        "type":"stock",
+        "params":[10,20,0.01,100,10,443377],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Prestiti e assicurazioni per per tutte le tasche, con la sicurezza e l'affidabilità garantita da Lord Kràrlick."
+    },
+    "SYV":{
+        "name":"Mercato Sovrano della Corte di Sirone",
+        "type":"stock",
+        "params":[15,0.4,0.004,200,-0.266,5845613282],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Un tempo il mercato portante del Grande Circuito Frugale, ora il mercato principale del Primo Impero Syviar."
+    },
+    "NSH":{
+        "name":"Mercato dei Giganti del Regno di Nàshiry",
+        "type":"stock",
+        "params":[100,4,0.02355,5,0,2134],
+        "commission":0.01,
+        "tax":0.07,
+        "description":"Il mercato principale del Pentarcato di Nàshiry e dei pirati della Fascia, fondato dall'Astropresidente Cogan-Sovek nell'anno 2115. Tratta articoli di ogni genere, dai beni di lusso alle armi di distruzione di massa, schiavi e prodotti agricoli."
+    },
+    "EQO":{
+        "name":"Equomercato di Òlrax e Òrax",
+        "type":"stock",
+        "params":[0.01,0.01,1,0.1,-0.001,31],
+        "commission":0.01,
+        "tax":0.1,
+        "description":"Mercato Equosolidale e Sostenibile dei Pianeti Liberi di Òlrax e Òrax."
+    },
+    "GOP":{
+        "name":"Gilda degli Oppressori",
+        "type":"stock",
+        "params":[100,0.5,0.02,4,0.5,161],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Diretta personalmente dal famigerato finanziere Qüark Khàr-Kranìka, la Gilda degli Oppressori è un'organizzazione composta da milioni di trafficanti di schiavi Qüark detti caporali. L'organizzazione ha un accordo commerciale con Zas-Ghàlenus che prevede il pagamento di una quota in Krok pari al 38% del lavoro giornaliero svolto solo dagli schiavi Qüark forniti dalla gilda."
+    },
+    "GCA":{
+        "name":"Gilda dei Cavatori",
+        "type":"stock",
+        "params":[10,3,0.4,4,-4,345],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Frutto di una collaborazione Torpex-Qüark, la Gilda dei Cavatori fornisce manodopera a basso costo affiancata ai superbi operai siderurgici Torpex per aiutare l'espansionismo coloniale degli stati tecnologicamente inadatti con un complesso sistema di prestiti e finanziamenti con interessi composti."
+    },
+    "MET":{
+        "name":"Metreox Data Analysis Corp.",
+        "type":"stock",
+        "params":[1,33,0.02,533,0,33],
+        "commission":0.05,
+        "tax":0.1,
+        "description":"Una corporazione Umana-Qüark che si occupa di raccolta, analisi e sfruttamento di dati personali di utenti nell'Alleanza per fini commerciali e non."
+    },
+    "SCH":{
+        "name":"Ministero dell'Istruzione e della Formazione Finanziaria",
+        "type":"stock",
+        "params":[0.001,0.1,0.5,2,4,1313],
+        "commission":0.05,
+        "tax":0.07,
+        "description":"Azienda Umana nata dall'abolizione della scuola pubblica su Gaia nel 2037, da allora si occupa della formazione delle giovani menti per prepararle al futuro glorioso che le aspetta nella Federazione e nell'Alleanza, con un forte focus sulla finanza galattica."
+    },
+    "XWAR":{
+        "name":"Armamenti L.Term",
+        "type":"ETF",
+        "components":{
+            "CSA":1.032,
+            "MTR":1.107,
+            "KRT":3.11,
+            "NAL":2.02,
+            "LCA":1.07
+        },
+        "commission":0.05,
+        "tax":0.05,
+        "description":"La miglior difesa è un buon attacco. Con questo prodotto sostieni lo sviluppo di armi sempre più potenti per mantenere intatta la deterrenza e il delicato equilibrio che separa l'Alleanza dalla guerra."
+    },
+    "XFOD":{
+        "name":"Foods M.Term",
+        "type":"ETF",
+        "components":{
+            "OLZ":9.875,
+            "SXFOD":10.312,
+            "QEQ":1.14,
+            "BRV":10.321,
+            "DIE":1.08
+        },
+        "commission":0.05,
+        "tax":0.05,
+        "description":"Investi contro la fame nel cosmo, sostieni le aziende che producono beni di prima necessità e li portano ai più bisognosi."
+    },
+    "XPSY":{
+        "name":"Moda S.Term",
+        "type":"ETF",
+        "components":{
+            "CLC":1.03,
+            "NZX":1.156,
+            "QUR":2.011
+        },
+        "commission":0.05,
+        "tax":0.05,
+        "description":"La moda non passa mai di moda, questo prodotto sostiene le principali aziende del settore della moda e del buon vivere dell'Alleanza."
+    },
+    "XECO":{
+        "name":"Sostenibilità M.Term",
+        "type":"ETF",
+        "components":{
+            "UMIT":5.102,
+            "SQM":10.104,
+            "SILQ":9.987,
+            "EQO":28.321,
+            "SCH":13.144
+        },
+        "commission":0.05,
+        "tax":0.05,
+        "description":"Un investimento sicuro per il futuro dei tuoi figli, che sostiene le politiche ambientali e lo sfruttamento responsabile delle risorse."
+    },
+    "XSLV":{
+        "name":"Lavoro e Servitù debitoria",
+        "type":"ETF",
+        "components":{
+            "GOP":1.03,
+            "GCA":0.98,
+            "MET":1.007,
+            "SCH":0.987
+        },
+        "commission":0.05,
+        "tax":0.05,
+        "description":"Un investimento per il futuro del mercato del lavoro."
+    }
+}
