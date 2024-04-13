@@ -19,7 +19,7 @@
             function chartTest_update(){
                 jsonParams.innerText="["+baseValue.value+","+variability.value+","+volatility.value+","+noisiness.value+","+influenceability.value+","+seed.value+"]"
                 gameT.innerText=gameTimerAsDate().toGMTString()
-                let s=new Stock("TEST","Test","Test stock",Number(baseValue.value),Number(variability.value),Number(volatility.value),Number(noisiness.value),Number(influenceability.value),0,0,Number(seed.value))
+                let s=new Stock("TEST","Test","Test stock",Number(baseValue.value),Number(variability.value),Number(volatility.value),Number(noisiness.value),Number(influenceability.value),0,0,null,Number(seed.value))
                 stock=s
                 stockValue.innerText=s.getValue().toFixed(3)+" Kr"
                 longTermInvestmentRating.innerText=krolikRating(s.getLongTermInvestmentRating())

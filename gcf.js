@@ -20,7 +20,7 @@ function gameTimerAsDate(t){
     return new Date(t*(1000*60*60*24))
 }
 //stock simulation
-function Stock(id,name,description,baseValue,variability,volatility,noisiness,influenceability,commission,tax,seed){
+function Stock(id,name,description,baseValue,variability,volatility,noisiness,influenceability,commission,tax,dividend,seed){
     this.id=id
     this.name=name
     this.description=description
@@ -39,6 +39,7 @@ function Stock(id,name,description,baseValue,variability,volatility,noisiness,in
     this._influenceability=influenceability
     this.commission=commission
     this.tax=tax
+    this.dividend=dividend
     for(let i=0;i<1024;i++){
         this._hAmplitude[i]=variability*(this._rng()*1000/(i*0.7+this._rng()*0.3))
         this._hPhase[i]=this._rng()*2*Math.PI
@@ -114,6 +115,14 @@ Stock.prototype={
         }
         if(losses==0) return 100
         return 100-(100/(1+(gains/losses)))
+    },
+    getNextDividendT(){
+        if(!this.dividend) return null
+        //TODO: i'm sure there's a better way to do this, but fuck it for now
+        let t=gameTimer()
+        let next=(~~(t/this.dividend.frequency))*this.dividend.frequency+this.dividend.offset%this.dividend.frequency
+        if(next<t) next+=this.dividend.frequency
+        return next
     },
     getLongTermInvestmentRating(){
         let score=0
@@ -195,7 +204,7 @@ ETF.prototype={
     }
 }
 //the hidden master stock by which all stocks are influenced
-const _masterStock=new Stock("","","",1,10,0.002,0,0,0,0,437)
+const _masterStock=new Stock("","","",1,10,0.002,0,0,0,0,null,437)
 //available stocks that can be purchased by the user (loaded from stocks.json)
 let stocks=null
 //useful functions to convert the values returned by getLongTermInvestmentRating and getSpeculativeInvestmentRating to human-readable forms
@@ -224,6 +233,7 @@ function Portfolio(username,initialCredits,race){
     this.credits=initialCredits
     this.username=username
     this.race=race
+    this.lastT=gameTimer()
     this.purchased={}
 }
 Portfolio.prototype={
@@ -303,6 +313,37 @@ Portfolio.prototype={
         else if(e<1000000) return 8
         else if(e<10000000) return 9
         else return 10
+    },
+    checkDividends:function(){
+        let paid={}
+        let t=gameTimer()
+        let changes=false
+        ac_expectChange=true
+        for(let s in this.purchased){
+            if(stocks[s].dividend){
+                let dit=~~((t+stocks[s].dividend.offset)/stocks[s].dividend.frequency), dilt=~~((this.lastT+stocks[s].dividend.offset)/stocks[s].dividend.frequency)
+                if(dit>dilt){
+                    paid[s]={
+                        beforeTax:0,
+                        afterTax:0
+                    }
+                    for(let i=dilt+1;i<=dit;i++){
+                        let t=i*stocks[s].dividend.frequency
+                        paid[s].beforeTax+=stocks[s].dividend.rate*this.purchased[s].getValue(t)
+                    }
+                    paid[s].afterTax=paid[s].beforeTax*(1-stocks[s].tax)
+                    this.credits+=paid[s].afterTax
+                    changes=true
+                }
+            }
+        }
+        this.lastT=t
+        if(changes){
+            saveGame()
+            return paid
+        }else{
+            return null
+        }
     }
 }
 function PortfolioEntry(stock,amount,avgPrice){
@@ -330,6 +371,9 @@ function loadPortfolioFromJSON(json){
         if(!stocks[s.stock]) continue //portfolio contains stocks from a company that no longer exists, don't load it
         p.purchased[s.stock]=new PortfolioEntry(s.stock,Number(s.amount),Number(s.avgPrice))
     }
+    if(typeof json.lastT !== "undefined"){
+        p.lastT=Number(json.lastT)
+    }
     return p
 }
 //load/save profile
@@ -349,6 +393,7 @@ function loadGame(){
         try{
             ac_expectChange=true
             player=loadPortfolioFromJSON(localStorage.gcf)
+            saveGame() //needs to be saved immediately in case of upgrade from an older format
             return true
         }catch(e){
             console.log("Failed to load user portfolio: "+e)
@@ -368,6 +413,13 @@ function saveGame(){
         return false
     }
 }
+if(!INSIDE_WEB_WORKER){
+    setInterval(function(){
+        if(player===null) return
+        let paid=player.checkDividends()
+        if(paid && typeof onDividendsPaid === "function") onDividendsPaid(paid)
+    },1000) //TODO: INCREASE
+}
 function initGCF(callback){
     let x=new XMLHttpRequest()
     x.onload=function(){
@@ -377,7 +429,7 @@ function initGCF(callback){
             for(id in data){
                 let s=data[id]
                 if(s.type==="stock"){
-                    stocks[id]=new Stock(id,s.name,s.description,s.params[0],s.params[1],s.params[2],s.params[3],s.params[4],Number(s.commission),Number(s.tax),s.params[5])
+                    stocks[id]=new Stock(id,s.name,s.description,s.params[0],s.params[1],s.params[2],s.params[3],s.params[4],Number(s.commission),Number(s.tax),s.dividend,s.params[5])
                 }else if(s.type==="ETF"){
                     stocks[id]=new ETF(id,s.name,s.description,s.components,Number(s.commission),Number(s.tax))
                 }else{

@@ -1,4 +1,4 @@
-const VERSION="v20240325a"
+const VERSION="v20240413e"
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
@@ -90,6 +90,31 @@ function showDialogBox(content,buttons,onVisible){
 function playSound(name){
     soundPlayer.src="sound/"+name
     soundPlayer.play()
+}
+function notify(content){
+    let n=document.createElement("div")
+    n.className="notification"
+    let d=document.createElement("div")
+    d.className="close"
+    d.onclick=function(){
+        d.onclick=null
+        n.style.animation="notify_disappear 1s"
+        n.onanimationend=function(){
+            notifications.removeChild(n)
+        }
+    }
+    n.appendChild(d)
+    d=document.createElement("div")
+    d.className="content"
+    if(typeof content === "string"){
+        d.innerText=content
+    }else if(content.constructor===Array){
+        content.forEach(function(e){
+            d.appendChild(e)
+        })
+    }
+    n.appendChild(d)
+    notifications.appendChild(n)
 }
 function populateLeftBar(){
     myStocks.innerHTML=""
@@ -245,6 +270,15 @@ function showDetails(s){
     if(s.type==="stock"){
         companyDescription.style.display="block"
         companyDescriptionContent.innerText=s.description
+        if(s.dividend){
+            dividendsInfo.style.display="block"
+            noDividends.style.display="none"
+            dividendRate.innerText=(100*s.dividend.rate).toFixed(3)+"%"
+            dividendFrequency.innerText=s.dividend.frequency+" giorni"
+        }else{
+            dividendsInfo.style.display="none"
+            noDividends.style.display="block"
+        }
     }else if(s.type==="ETF"){
         etfDetails.style.display="block"
         etfDescription.innerText=s.description
@@ -309,6 +343,9 @@ function updateDetails(){
             btns[3].className="selected";
         }else if(chartDays===1825){
             btns[4].className="selected";
+        }
+        if(stocks[stockDetails.current].dividend){
+            dividendNextT.innerText=gameTimerAsDate(stocks[stockDetails.current].getNextDividendT()).toISOString().split("T")[0] //TODO:format this properly
         }
     }
 }
@@ -751,6 +788,40 @@ function allOut(){
     if(!player||!player.purchased[stockDetails.current]) return
     amount.value=player.purchased[stockDetails.current].amount
     if(amount.value>0) sell()
+}
+function onDividendsPaid(paid){
+    let n=[]
+    let d=document.createElement("h4")
+    d.innerText="Dividendi ricevuti"
+    n.push(d)
+    d=document.createElement("table")
+    d.className="dividendsReport"
+    let r=document.createElement("tr")
+    h=document.createElement("th")
+    h.innerText="Titolo"
+    r.appendChild(h)
+    h=document.createElement("th")
+    h.innerText="Cedola lorda"
+    r.appendChild(h)
+    h=document.createElement("th")
+    h.innerText="Cedola netta"
+    r.appendChild(h)
+    d.appendChild(r)
+    for(s in paid){
+        r=document.createElement("tr")
+        h=document.createElement("th")
+        h.innerText=s
+        r.appendChild(h)
+        let a=document.createElement("td")
+        a.innerText=paid[s].beforeTax.toFixed(3)+" Kr"
+        r.appendChild(a)
+        a=document.createElement("td")
+        a.innerText=paid[s].afterTax.toFixed(3)+" Kr"
+        r.appendChild(a)
+        d.appendChild(r)
+    }
+    n.push(d)
+    notify(n)
 }
 function createPlayer(){
     if(newPlayerName.value.trim()==""){

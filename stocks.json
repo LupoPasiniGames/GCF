@@ -5,6 +5,11 @@
         "params":[100,0.4,0.02,1,0.5,1000],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":365,
+            "offset":280,
+            "rate":0.03
+        },
         "description":"Fondata su Gaia nel 2058 per volere di un fiorente gruppo imprenditoriale metallurgico, acquisì in breve tempo il supporto del Governo Terrestre, che ne fece la prima azienda bellica Umana, pienamente attiva nel mercato speciale. Conosciuta in tutta la Galassia per l’efficacia e l’ottima fattura delle proprie armi, rappresenta, dopo la Chiesa Universale, la seconda azienda più temuta dalle altre GCC presenti sul mercato."
     },
     "MTR":{
@@ -13,6 +18,11 @@
         "params":[40,0.1,0.08,1,0.2,1001],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":180,
+            "offset":74,
+            "rate":0.012
+        },
         "description":"Nata agli inizi del 2062 dalla collaborazione di alcuni magnati illuminati Umani, Qüark e Guide Spirituali, si pose l’obiettivo di porre fine alle guerre, creando equipaggiamenti bellici di altissima qualità e cercando nuovi spazi colonizzabili nella Galassia."
     },
     "OLS":{
@@ -21,6 +31,11 @@
         "params":[70,0.4,0.02,1,0.8,1002],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":90,
+            "offset":23,
+            "rate":0.0005
+        },
         "description":"La missione di questa piccola realtà si identifica nella messa a punto del sistema di protezione perfetto per ogni esigenza. Attualmente offre tecnotute di altissimo livello capaci di affrontare anche le insidie dello spazio e scudi tattici intelligenti per i congegni in grado di autoricalibrarsi in relazione ai danni subiti. I prodotti Olonovis sono molto richiesti sia in campo bellico, sotto forma di tute, sia nel settore industriale, sotto forma di DPI, al fine di prevenire gli infortuni sul lavoro."
     },
     "KRT":{
@@ -37,6 +52,11 @@
         "params":[1000,0.1,0.004,1,1,4004],
         "commission":0.05,
         "tax":0.025,
+        "dividend":{
+            "frequency":30,
+            "offset":0,
+            "rate":0.001
+        },
         "description":"Nata nel 2040 in seguito alle persecuzioni messe in atto dagli Ivosiani, rappresenta un’istituzione galattica sotto la diretta guida del Qüomq; principalmente attiva nel mercato dello scambio, dello spazio e dei beni di consumo, gode di un’elevatissima reputazione grazie ai suoi prodotti e servizi di qualità che hanno reso grande e orgogliosa la specie Qüark."
     },
     "OLZ":{
@@ -53,6 +73,11 @@
         "params":[100,0.1,0.025,1,0.4,1006],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":365,
+            "offset":364,
+            "rate":0.05
+        },
         "description":"Principalmente attiva nel mercato speciale dell’energia e dello scambio, si presenta come la più grande potenza economica dell’Umanità. Spesso in contrasto con la comunità scientifica di Khàr-Kàu, propone prodotti bellici di altissima qualità e svariate forme di energie rinnovabili a prezzi competitivi. Grazie alla sua forte presenza su Khàr-Khàr come guardiana delle istituzioni Qüark per mezzo dei suoi agenti speciali (gli “Arcangeli”) e gli ottimi rapporti con alcuni membri di spicco del Qüomq, gode di privilegi commerciali unici che contribuiscono a sottrarre quote di mercato alle GCC rivali."
     },
     "UMIT":{
@@ -61,6 +86,11 @@
         "params":[10,0.1,0.01,1,0.5,1007],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":90,
+            "offset":42,
+            "rate":0.001
+        },
         "description":"Nata nel 2041 attraverso un accordo economico fra i Qüark ed i Torpex, rappresenta senza ombra di dubbio l’azienda più grande nel settore delle materie grezze. Grazie al supporto dell’Alleanza Commerciale, combina le migliori competenze amministrative degli anfiri con le straordinarie doti estrattive e metallurgiche dei Torpex, formando un colosso imbattibile in questo settore."
     },
     "NAL":{
@@ -69,6 +99,11 @@
         "params":[20,0.5,0.04,1,0.3,1008],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":25,
+            "offset":20,
+            "rate":0.00025
+        },
         "description":"Fondata nel 2063 dall’adepto Tehl-Nalahzor per contrastare il potere economico della Chiesa Universale in tutti i suoi campi, propone equipaggiamenti bellici provenienti dalla rinomata ingegneria Syrotecnica ed energia elettrica pulita attraverso il rivoluzionario motore magnetico, il quale può essere installato facilmente nel luogo in cui è richiesta la fornitura energetica."
     },
     "UKG":{
@@ -85,6 +120,11 @@
         "params":[10,0.2,0.02,1,0.3,1010],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":60,
+            "offset":32,
+            "rate":0.0008
+        },
         "description":"Fondata nel 2041 dall’Alleanza Commerciale con l’intento di acquisire il monopolio del mercato alimentare sintetico, fu vittima di pesanti critiche da parte dell’opinione pubblica. Tuttavia, grazie al brevetto della “frutta sintetica”, che consisteva nella clonazione massiccia di frutta naturale, poi venduta ad un prezzo dieci volte inferiore alla concorrenza, conquistò in parte la fiducia dei consumatori e gettò le basi per realizzare il progetto della “verdura sintetica”, la nuova frontiera dei cibi a basso costo."
     },
     "GTD":{
@@ -93,6 +133,11 @@
         "params":[4,0.4,0.04,1,0.3,1010],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":60,
+            "offset":32,
+            "rate":0.0008
+        },
         "description":"Fondata nel 2042 dalla Syntetix Food e supportata dall’Alleanza Commerciale, si propone come un’azienda alternativa allo stesso colosso fondatore, con l’obiettivo di conquistare la fiducia di consumatori scettici nei confronti del mercato sintetico. Sotto la guida segreta dell’amministrazione Syntetix Food, essa propone prodotti naturali geneticamente modificati, posizionandosi fra la proposta BIO e quella sintetica."
     },
     "QEQ":{
@@ -101,6 +146,11 @@
         "params":[800,0.15,0.01,1,1,1012],
         "commission":0.05,
         "tax":0.07,
+        "dividend":{
+            "frequency":30,
+            "offset":1,
+            "rate":0.001
+        },
         "description":"Fondata nel 2044 da Khàr-Qüan e Khàr-Qüant, due ricchissimi imprenditori Qüark un tempo al servizio dell’Alleanza Commerciale, tratta principalmente il commercio di beni di consumo e beni di lusso. In contrasto con la Syntetix Food e la Genetyx Food per la presunta violazione di brevetti, si presenta come la più grande corporazione di “cibi puri” esistente sul mercato."
     },
     "BRV":{
@@ -117,6 +167,11 @@
         "params":[120,0.3,0.05,1,0.7,1014],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":90,
+            "offset":74,
+            "rate":0.02
+        },
         "description":"Specializzata in armi ed equipaggiamenti facenti uso della tecnologia dei fasci di luce coerente, propone una vasta gamma di prodotti destinati al comparto bellico e all’industria mineraria. Il laser Canori, dopo lo xerolaser Torpex, è lo strumento più venduto in questo settore e, come dichiarato dal presidente della Lux Canori Arsenal, “è il compagno perfetto del minatore moderno”."
     },
     "CLC":{
@@ -165,14 +220,24 @@
         "params":[70,0.6,0.2,1.5,1.2,249555618266447775332],
         "commission":0.05,
         "tax":0.1,
+        "dividend":{
+            "frequency":120,
+            "offset":17,
+            "rate":0.0008
+        },
         "description":"Finanziata di Grandi Signori di Gaia, la Diesis Farmaceutica si pone l'obiettivo di prevenire e curare le malattie provenienti da altre specie dello spazio conosciuto, ai fini di proteggere e preservare la superiorità Umana."
     },
     "QUOMQ":{
-        "name":"BTP Qüomq",
+        "name":"Qüomq Valore",
         "type":"stock",
         "params":[1.25,12,0.01,100,0.05,883],
         "commission":0.05,
         "tax":0.07,
+        "dividend":{
+            "frequency":180,
+            "offset":2,
+            "rate":0.0023
+        },
         "description":"Buoni del Tesoro del Qüomq, emessi dalla banca centrale di Khàr-Khàr. A differenza delle comuni obbligazioni emesse dagli altri principali governi galattici, questi buoni funzionano esattamente come un'azione e sono da sempre oggetto sia di investimenti a lungo termine che di speculazione a breve termine."
     },
     "KRL":{
@@ -181,6 +246,11 @@
         "params":[10,20,0.01,100,10,443377],
         "commission":0.05,
         "tax":0.07,
+        "dividend":{
+            "frequency":30,
+            "offset":6,
+            "rate":0.001
+        },
         "description":"Prestiti e assicurazioni per per tutte le tasche, con la sicurezza e l'affidabilità garantita da Lord Kràrlick."
     },
     "SYV":{
@@ -205,6 +275,11 @@
         "params":[0.01,0.01,1,0.1,-0.001,31],
         "commission":0.01,
         "tax":0.1,
+        "dividend":{
+            "frequency":7,
+            "offset":3,
+            "rate":0.00001
+        },
         "description":"Mercato Equosolidale e Sostenibile dei Pianeti Liberi di Òlrax e Òrax."
     },
     "GOP":{

@@ -32,6 +32,7 @@ const appFiles=[
   'pics/ultraspec/logo.webp'
   'pics/lpg.png',
   'pics/stonks.webp',
+  'pics/close.png',
   'sound/transaction.opus',
   //add all PWA files here
 ];
