@@ -1,4 +1,4 @@
-const VERSION="v20240413e"
+const VERSION="v20240414a"
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')

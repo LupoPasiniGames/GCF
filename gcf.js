@@ -118,11 +118,13 @@ Stock.prototype={
     },
     getNextDividendT(){
         if(!this.dividend) return null
-        //TODO: i'm sure there's a better way to do this, but fuck it for now
+        //TODO: i have no idea why the old formula didn't work so i'm doing this crappy workaround by simulating the passing of days
         let t=gameTimer()
-        let next=(~~(t/this.dividend.frequency))*this.dividend.frequency+this.dividend.offset%this.dividend.frequency
-        if(next<t) next+=this.dividend.frequency
-        return next
+        let dilt=~~((t+this.dividend.offset)/this.dividend.frequency)
+        for(let i=t;i<=t+this.dividend.frequency;i++){
+            let dit=~~((i+this.dividend.offset)/this.dividend.frequency)
+            if(dit>dilt) return i
+        }
     },
     getLongTermInvestmentRating(){
         let score=0
